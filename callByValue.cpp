@@ -20,6 +20,7 @@ int incrementV(int x){
 int main()
 {
     int x = 5;
+    cout<<" Address of x in main :: " << &x << endl;
     increment(x);
     cout<<" x value :: "<< x << endl;
     incrementP(&x);
