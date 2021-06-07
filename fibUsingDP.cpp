@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ctime>
 
 using namespace std;
 
@@ -17,6 +16,16 @@ int fib(int n, int* arr){
     return n1 + n2;
 }
 
+int fibIter(int n){
+    if(n <= 2) return 1;
+    int* arr = new int[n+1]{0, 1, 1};
+    for(int i=3;i<=n;i++){
+        arr[i] = arr[i-1] + arr[i-2];
+    }
+    return arr[n];
+}
+
+//1134903170
 int main(){
     int n;
     cout<<"Enter n value :: ";
@@ -38,6 +47,16 @@ int main(){
     dt = ctime(&now);
     cout << "The local date and time is Before :: " << dt << endl;
     cout<<"fibOld("<<n<<") :: "<<fibOld(n)<<endl;
+    now = time(0);
+    // convert now to string form
+    dt = ctime(&now);
+    cout << "The local date and time is After :: " << dt << endl;
+    
+    now = time(0);
+    // convert now to string form
+    dt = ctime(&now);
+    cout << "The local date and time is Before :: " << dt << endl;
+    cout<<"fibIter("<<n<<") :: "<<fibIter(n)<<endl;
     now = time(0);
     // convert now to string form
     dt = ctime(&now);
